@@ -2,6 +2,7 @@
 
 module Aggregate
   module Values
+    # Takes a mongoid document and returns a string containing the document collection name
     class DocumentClass < Base
       def to_s
         inspect
@@ -14,6 +15,7 @@ module Aggregate
       end
 
       class << self
+        # :reek:ManualDispatch
         def handles?(value)
           return false unless value.respond_to? :included_modules
 

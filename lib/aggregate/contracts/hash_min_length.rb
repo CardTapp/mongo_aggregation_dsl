@@ -2,6 +2,7 @@
 
 module Aggregate
   module Contracts
+    # Validates a hash length is less than the min given value
     class HashMinLength < ::Contracts::Builtin::CallableClass
       def initialize(*vals)
         @length = vals[0]

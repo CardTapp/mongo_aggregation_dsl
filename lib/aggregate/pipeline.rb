@@ -1,8 +1,10 @@
 # frozen_string_literal: true
 
 module Aggregate
+  # Represents an aggregation pipeline and is the main entry point to the DSL
+  # Example: Aggregate::Pipeline.new().match().project().execute()
   class Pipeline
-    attr_accessor :stages
+    attr_reader :stages
 
     def initialize(klass = nil)
       @klass = klass
@@ -17,6 +19,7 @@ module Aggregate
       @stages.to_s
     end
 
+    # :reek:NilCheck
     def execute
       raise "Pipeline initializer must specify a class in order to be executable" if @klass.nil?
 

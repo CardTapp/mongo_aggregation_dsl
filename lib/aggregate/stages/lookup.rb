@@ -2,9 +2,11 @@
 
 module Aggregate
   module Stages
+    # Represents an aggregation lookup
+    # https://docs.mongodb.com/manual/reference/operator/aggregation/lookup/#pipe._S_lookup
     class Lookup < HashBase
       Contract KeywordArgs[
-                       from: C::ClassIncludes[Mongoid::Document],
+                       from: C::ClassIncludes[[Mongoid::Document]],
                        as: String,
                        let: And[HashOf[Symbol, Symbol], C::HashMinLength[1]],
                        pipeline: Aggregate::Pipeline] => Any

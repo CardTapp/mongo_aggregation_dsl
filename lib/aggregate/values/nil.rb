@@ -2,6 +2,8 @@
 
 module Aggregate
   module Values
+    # Converts nil to null
+    # :reek:NilCheck
     class Nil < Base
       def to_s
         inspect

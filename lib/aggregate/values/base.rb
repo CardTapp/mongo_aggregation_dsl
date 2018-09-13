@@ -19,7 +19,7 @@ module Aggregate
     #
     # http://chrisstump.online/2016/03/23/stop-abusing-notimplementederror/
     class Base
-      attr_accessor :value, :is_key
+      attr_reader :value, :is_key
       def initialize(value, is_key)
         @value = value
         @is_key = is_key
@@ -31,6 +31,15 @@ module Aggregate
             "Aggregate::Values::#{klass}".constantize
           end
         end
+      end
+
+      private
+
+      private
+
+      def get_value(original_value, is_hash_key)
+        handler = self.class.value_handlers.detect { |handler| handler.handles?(original_value) }
+        handler.nil? ? original_value : handler.new(original_value, is_hash_key)
       end
     end
   end

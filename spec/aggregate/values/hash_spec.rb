@@ -9,7 +9,7 @@ RSpec.describe Aggregate::Values::Hash do
     end
 
     it "properly formats a hash" do
-      expect(Aggregate::Values::Hash.new({test: "test"}, false).to_s).to eq "{ test: 'test' }"
+      expect(Aggregate::Values::Hash.new({ test: "test" }, false).to_s).to eq "{ test: 'test' }"
     end
   end
 

@@ -1,6 +1,5 @@
 # frozen_string_literal: true
 
-require "active_support"
 require "spec_helper"
 require "database_cleaner"
 require "aggregate"

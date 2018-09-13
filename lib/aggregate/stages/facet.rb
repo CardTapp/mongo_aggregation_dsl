@@ -2,6 +2,8 @@
 
 module Aggregate
   module Stages
+    # Represents an aggregation facet
+    # https://docs.mongodb.com/manual/reference/operator/aggregation/facet/#pipe._S_facet
     class Facet < HashBase
       Contract And[
                    C::HashMinLength[1],

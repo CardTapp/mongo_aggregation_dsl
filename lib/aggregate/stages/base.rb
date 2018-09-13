@@ -9,10 +9,11 @@ module Aggregate
     class Base < Aggregate::Values::Base
       include ::Contracts::Core
       include ::Contracts::Builtin
-      attr_accessor :options
+      attr_reader :options
+      # :reek:NilCheck
       def initialize(options)
-        handler = self.class.value_handlers.detect { |h| h.handles?(options) }
-        @options = handler.nil? ? options : handler.new(options, false)
+        value_handler = self.class.value_handlers.detect { |handler| handler.handles?(options) }
+        @options = value_handler.nil? ? options : value_handler.new(options, false)
       end
     end
   end

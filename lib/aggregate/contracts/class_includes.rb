@@ -2,13 +2,16 @@
 
 module Aggregate
   module Contracts
+    # Validates that a class includes a given module
     class ClassIncludes < ::Contracts::Builtin::CallableClass
-      def initialize(*klasses)
-        @klasses = klasses
+      def initialize(klasses)
+        @klasses = [klasses].flatten(1)
       end
 
+      # :reek:FeatureEnvy
+      # :reek:ManualDispatch
       def valid?(object)
-        @klasses.all? { |klass| klass.respond_to?(:included_modules) && klass.included_modules.include?(object) }
+        @klasses.all? { |klass| object.respond_to?(:included_modules) && object.included_modules.include?(klass) }
       end
 
       def to_s

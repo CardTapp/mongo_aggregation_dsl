@@ -11,8 +11,5 @@ RSpec.describe Aggregate::Stages::HashBase do
     it "should raise if hash length is zero" do
       expect { Aggregate::Stages::HashBase.new({}) }.to raise_error(ParamContractError)
     end
-
-    it "does not raise" do
-    end
   end
 end

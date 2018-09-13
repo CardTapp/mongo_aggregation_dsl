@@ -9,13 +9,13 @@ RSpec.describe Aggregate::Values::DocumentClass do
     end
 
     it "properly formats an array" do
-      expect(Aggregate::Values::DocumentClass.new(Document, false).to_s).to eq "'documents'"
+      expect(Aggregate::Values::DocumentClass.new(TestDocument, false).to_s).to eq "'test_documents'"
     end
   end
 
   describe "#handles" do
     it "returns true for Mongoid Documents" do
-      expect(Aggregate::Values::DocumentClass.handles?(Document)).to eq true
+      expect(Aggregate::Values::DocumentClass.handles?(TestDocument)).to eq true
     end
 
     it "returns false for non Mongoid Documents" do

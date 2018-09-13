@@ -3,7 +3,7 @@
 require "bundler/setup"
 require "aggregate"
 
-load "spec/support/models/document.rb"
+load "spec/support/models/test_document.rb"
 
 RSpec.configure do |config|
   # Enable flags like --only-failures and --next-failure

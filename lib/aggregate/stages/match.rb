@@ -2,6 +2,8 @@
 
 module Aggregate
   module Stages
+    # Represents an aggregation match
+    # https://docs.mongodb.com/manual/reference/operator/aggregation/match/#pipe._S_match
     # TODO: Should probably have two match types.
     # A simple match `match(account_id: BSON::ObjectId("11111111111111111111"))`
     # An expression match `match( :expr.and => [ { eq: %w[$user_id $$user_id] }] )`

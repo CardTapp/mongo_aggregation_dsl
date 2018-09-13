@@ -2,6 +2,7 @@
 
 module Aggregate
   module Values
+    # Returns a string wrapped in single quotes if the value or string if a key
     class String < Base
       def to_s
         inspect

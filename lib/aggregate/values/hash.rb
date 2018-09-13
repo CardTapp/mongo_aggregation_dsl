@@ -2,6 +2,7 @@
 
 module Aggregate
   module Values
+    # Takes hash and converts each key and pair to the appropriate value handler if one is available.
     class Hash < Base
       def to_s
         inspect
@@ -10,29 +11,24 @@ module Aggregate
       def inspect
         raise ArgumentError("Hash cannot be a hash key") if is_key
 
-        "{ #{transpose_options.map { |k, v| "#{k}: #{v}" }.join(', ')} }"
+        "{ #{transpose_options.map { |hash_key, hash_value| "#{hash_key}: #{hash_value}" }.join(', ')} }"
       end
 
       private
 
-      def get_value(v, is_hash_key)
-        handler = self.class.value_handlers.detect { |h| h.handles?(v) }
-        handler.nil? ? v : handler.new(v, is_hash_key)
-      end
-
       def transpose_options
         new_hash = {}
-        value.each do |k, v|
-          if k.is_a?(Origin::Key)
-            expression = k.__expr_part__(v)
-            k = expression.keys.first.to_sym
-            v = expression.values.first
+        value.each do |original_key, original_value|
+          if original_key.is_a?(Origin::Key)
+            expression = original_key.__expr_part__(original_value)
+            original_key = expression.keys.first.to_sym
+            original_value = expression.values.first
           end
 
-          k = get_value(k, true)
-          v = get_value(v, false)
+          new_key = get_value(original_key, true)
+          new_value = get_value(original_value, false)
 
-          new_hash[k] = v
+          new_hash[new_key] = new_value
         end
         new_hash
       end

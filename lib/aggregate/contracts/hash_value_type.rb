@@ -2,6 +2,7 @@
 
 module Aggregate
   module Contracts
+    # Validates the value types in a given range are of a given type
     class HashValueType < ::Contracts::Builtin::CallableClass
       def initialize(*vals)
         @range = vals[0]
