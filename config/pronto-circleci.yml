@@ -1,0 +1,7 @@
+github:
+  org: "CardTapp"
+  repo: "mongo_aggregation_dsl"
+pronto:
+  comments_on_diff: true
+  reviews_on_diff: true
+  report_status: true
