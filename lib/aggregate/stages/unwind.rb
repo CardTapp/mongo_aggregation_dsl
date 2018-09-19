@@ -5,7 +5,14 @@ module Aggregate
     # Represents an aggregation unwind
     # https://docs.mongodb.com/manual/reference/operator/aggregation/unwind/#pipe._S_unwind
     class Unwind < Base
-      Contract And[String, C::StartsWith["$"]] => Any
+      Contract Or[
+                   And[String, C::StartsWith["$"]],
+                   KeywordArgs[
+                      path: And[String, C::StartsWith["$"]],
+                      includeArrayIndex: Optional[Boolean],
+                      preserveNullAndEmptyArrays: Optional[Boolean]
+                   ],
+               ] => Any
       def initialize(options)
         super(options)
       end
