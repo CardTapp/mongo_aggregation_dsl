@@ -7,7 +7,7 @@ module Aggregate
     attr_reader :stages
 
     def initialize(klass = nil)
-      @klass = klass
+      @klass  = klass
       @stages = []
     end
 
@@ -23,9 +23,8 @@ module Aggregate
     def execute
       raise "Pipeline initializer must specify a class in order to be executable" if @klass.nil?
 
-      db = Mongoid.default_client.database
-      handler = Aggregate::Values::Pipeline.new(self)
-      command = "function(){return db.#{@klass.collection_name}.aggregate(#{handler}).toArray()}"
+      db      = Mongoid.default_client.database
+      command = "function(){return db.#{@klass.collection_name}.aggregate(#{self}).toArray()}"
 
       # https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/operation/result.rb
       result = db.command("$eval": command, nolock: true, await_data: true)
