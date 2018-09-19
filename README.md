@@ -27,7 +27,7 @@ Aggregate::Pipeline.new(User).
         project(id: 1).
         lookup(
             from: EndUser,
-            let: { user_id: :"$id" },
+            let: { user_id: :"$_id" },
             as: "my_record",
             pipeline: Aggregate::Pipeline.new.
                 match(
