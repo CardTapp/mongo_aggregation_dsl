@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    mongo_aggregation_dsl (0.0.0.pre3)
+    mongo_aggregation_dsl (0.0.0.pre4)
       autoloaded (~> 2)
       contracts-lite
       mongo (~> 2.6.2)
@@ -55,6 +55,7 @@ GEM
     fasterer (0.4.1)
       colorize (~> 0.7)
       ruby_parser (~> 3.11.0)
+    gem-release (2.0.1)
     gitlab (4.5.0)
       httparty (>= 0.14.0)
       terminal-table (>= 1.5.1)
@@ -184,6 +185,7 @@ DEPENDENCIES
   bundler (~> 1.16)
   codecov (~> 0.1.0, ~> 0.1)
   database_cleaner
+  gem-release
   mongo_aggregation_dsl!
   pronto
   pronto-brakeman
@@ -200,4 +202,4 @@ DEPENDENCIES
   simplecov-rcov
 
 BUNDLED WITH
-   1.16.1
+   1.16.4
