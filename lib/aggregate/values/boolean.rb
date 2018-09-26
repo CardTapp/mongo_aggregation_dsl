@@ -3,18 +3,18 @@
 module Aggregate
   module Values
     # Returns a string wrapped in single quotes if the value or string if a key
-    class String < Base
+    class Boolean < Base
       def to_s
         inspect
       end
 
       def inspect
-        "'#{value}'"
+        value.to_s
       end
 
       class << self
         def handles?(value)
-          value.is_a? ::String
+          value.is_a? ::Boolean
         end
       end
     end

@@ -39,7 +39,7 @@ module Aggregate
 
         retval = :_id if value == :id
 
-        is_key ? retval.to_s : "'#{retval}'"
+        "'#{retval}'"
       end
 
       class << self

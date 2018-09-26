@@ -12,7 +12,7 @@ RSpec.describe Aggregate::Stages::Match do
             { :not.in => ["$name", %w[1 2]] }
           ]
         ).to_s
-      ).to eq "{ $match: { $expr: { $and: [{ $eq: ['$user_id', '$$user_id'] }, { $not: { $in: ['$name', ['1', '2']] } }] } } }"
+      ).to eq "{ $match: { '$expr': { '$and': [{ '$eq': ['$user_id', '$$user_id'] }, { '$not': { '$in': ['$name', ['1', '2']] } }] } } }"
     end
   end
   describe "schema" do
