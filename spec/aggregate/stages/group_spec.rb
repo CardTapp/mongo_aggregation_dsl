@@ -7,7 +7,7 @@ RSpec.describe Aggregate::Stages::Group do
     it "should properly format" do
       expect(
         Aggregate::Stages::Group.new(id: nil, total: { "$sum": 1 }).to_s
-      ).to eq "{ $group: { _id: null, total: { $sum: 1 } } }"
+      ).to eq "{ $group: { '_id': null, 'total': { '$sum': 1 } } }"
     end
   end
   describe "schema" do

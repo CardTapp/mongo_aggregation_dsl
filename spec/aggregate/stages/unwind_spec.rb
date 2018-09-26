@@ -13,7 +13,7 @@ RSpec.describe Aggregate::Stages::Unwind do
         preserveNullAndEmptyArrays: true,
         includeArrayIndex: true
       ).to_s).
-          to eq "{ $unwind: { path: '$my_path', preserveNullAndEmptyArrays: true, includeArrayIndex: true } }"
+          to eq "{ $unwind: { 'path': '$my_path', 'preserveNullAndEmptyArrays': true, 'includeArrayIndex': true } }"
     end
   end
   describe "schema" do

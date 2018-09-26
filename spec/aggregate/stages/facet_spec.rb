@@ -8,7 +8,7 @@ RSpec.describe Aggregate::Stages::Facet do
       expect(Aggregate::Stages::Facet.new(
         testa: Aggregate::Pipeline.new,
         testb: Aggregate::Pipeline.new
-      ).to_s).to eq "{ $facet: { testa: [], testb: [] } }"
+      ).to_s).to eq "{ $facet: { 'testa': [], 'testb': [] } }"
     end
   end
 
