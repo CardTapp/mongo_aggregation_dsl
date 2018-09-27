@@ -27,7 +27,7 @@ module Aggregate
       command = "function(){return db.#{@klass.collection_name}.aggregate(#{self}).toArray()}"
 
       # https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/operation/result.rb
-      result = db.command("$eval": command, nolock: true, await_data: true, read: ServerSelector::PREFERENCES[:secondary_preferred])
+      result = db.command("$eval": command, nolock: true, await_data: true, read: Mongo::ServerSelector::PREFERENCES[:secondary_preferred])
       result.documents
     end
 
