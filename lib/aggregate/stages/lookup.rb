@@ -21,12 +21,8 @@ module Aggregate
         super(options)
       end
 
-      def to_s
-        inspect
-      end
-
-      def inspect
-        "{ $lookup: #{options} }"
+      def transpose
+        { '$lookup': options }
       end
     end
   end

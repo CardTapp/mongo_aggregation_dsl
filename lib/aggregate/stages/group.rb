@@ -13,12 +13,8 @@ module Aggregate
         super(options)
       end
 
-      def to_s
-        inspect
-      end
-
-      def inspect
-        "{ $group: #{options} }"
+      def transpose
+        { '$group': options }
       end
     end
   end

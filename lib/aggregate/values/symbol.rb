@@ -29,17 +29,13 @@ module Aggregate
       GROUP_ACCUMULATORS = %i[avg first last max min push addToSet].freeze
 
       PROJECT_ACCUMULATORS = %i[avg max min push stdDevPop stdDevSamp sum].freeze
-      def to_s
-        inspect
-      end
-
-      def inspect
+      def transpose
         is_operator = (%i[expr] + EXPRESSION_OPERATORS + GROUP_ACCUMULATORS + PROJECT_ACCUMULATORS).include?(value)
         retval = is_operator ? "$#{value}" : value
 
         retval = :_id if value == :id
 
-        "'#{retval}'"
+        is_key ? retval : retval.to_s
       end
 
       class << self

@@ -12,12 +12,8 @@ module Aggregate
         super(options)
       end
 
-      def to_s
-        inspect
-      end
-
-      def inspect
-        "{ $facet: #{options} }"
+      def transpose
+        { '$facet': options }
       end
     end
   end

@@ -10,12 +10,8 @@ module Aggregate
         super(new_root)
       end
 
-      def to_s
-        inspect
-      end
-
-      def inspect
-        "{ $replaceRoot: {newRoot: #{options}} }"
+      def transpose
+        { '$replaceRoot': { 'newRoot': options } }
       end
     end
   end

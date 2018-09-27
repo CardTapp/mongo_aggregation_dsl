@@ -3,13 +3,13 @@
 require "rails_helper"
 
 RSpec.describe Aggregate::Stages::Lookup do
-  describe "#to_s" do
+  describe "#transpose" do
     it "should properly format" do
       expect(Aggregate::Stages::Lookup.new(from:     TestDocument,
                                            let:      { test: :"$_id" },
                                            as:       "test",
-                                           pipeline: Aggregate::Pipeline.new).to_s).
-          to eq "{ $lookup: { 'from': 'test_documents', 'let': { 'test': '$_id' }, 'as': 'test', 'pipeline': [] } }"
+                                           pipeline: Aggregate::Pipeline.new).transpose).
+          to eq('$lookup': { 'from': "test_documents", 'let': { 'test': "$_id" }, 'as': "test", 'pipeline': [] })
     end
   end
 

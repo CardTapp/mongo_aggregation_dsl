@@ -4,10 +4,10 @@ module Aggregate
   module Values
     # Takes an array and converts each to the appropriate value handler if one is available.
     class Array < Base
-      def to_s
+      def transpose
         raise ArgumentError, "Array cannot be a hash key" if is_key
 
-        "[#{value.map { |value| get_value(value, false) }.join(', ')}]"
+        value.map { |value| get_value(value, false) }
       end
 
       class << self

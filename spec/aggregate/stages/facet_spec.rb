@@ -3,12 +3,12 @@
 require "rails_helper"
 
 RSpec.describe Aggregate::Stages::Facet do
-  describe "#to_s" do
+  describe "#transpose" do
     it "should properly format" do
       expect(Aggregate::Stages::Facet.new(
         testa: Aggregate::Pipeline.new,
         testb: Aggregate::Pipeline.new
-      ).to_s).to eq "{ $facet: { 'testa': [], 'testb': [] } }"
+      ).transpose).to eq('$facet': { 'testa': [], 'testb': [] })
     end
   end
 
@@ -21,7 +21,7 @@ RSpec.describe Aggregate::Stages::Facet do
         Aggregate::Stages::Facet.new(
           testa: Aggregate::Pipeline.new,
           testb: Aggregate::Pipeline.new
-        )
+        ).transpose
       end .not_to raise_error
     end
     it "should raise if values are not a Pipeline" do
@@ -29,7 +29,7 @@ RSpec.describe Aggregate::Stages::Facet do
         Aggregate::Stages::Facet.new(
           testa: Aggregate::Pipeline.new,
           testb: "test"
-        )
+        ).transpose
       end .to raise_error(ParamContractError)
     end
   end

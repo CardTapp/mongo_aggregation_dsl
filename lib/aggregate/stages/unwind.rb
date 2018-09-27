@@ -17,12 +17,8 @@ module Aggregate
         super(options)
       end
 
-      def to_s
-        inspect
-      end
-
-      def inspect
-        "{ $unwind: #{options} }"
+      def transpose
+        { '$unwind': options }
       end
     end
   end

@@ -5,12 +5,8 @@ module Aggregate
     # Represents an aggregation project
     # https://docs.mongodb.com/manual/reference/operator/aggregation/project/#pipe._S_project
     class Project < HashBase
-      def to_s
-        inspect
-      end
-
-      def inspect
-        "{ $project: #{options} }"
+      def transpose
+        { '$project': options }
       end
     end
   end

@@ -6,7 +6,7 @@ module Aggregate
     class HashBase < Base
       Contract C::HashMinLength[1] => Any
       def initialize(options)
-        super(Aggregate::Values::Hash.new(options, false))
+        super(options)
       end
     end
   end

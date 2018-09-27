@@ -3,17 +3,17 @@
 require "rails_helper"
 
 RSpec.describe Aggregate::Stages::Unwind do
-  describe "#to_s" do
+  describe "#transpose" do
     it "should properly format a simple unwind" do
-      expect(Aggregate::Stages::Unwind.new("$test").to_s).to eq "{ $unwind: '$test' }"
+      expect(Aggregate::Stages::Unwind.new("$test").transpose).to eq('$unwind': "$test")
     end
     it "should properly format an advanced unwind" do
       expect(Aggregate::Stages::Unwind.new(
         path: "$my_path",
         preserveNullAndEmptyArrays: true,
         includeArrayIndex: true
-      ).to_s).
-          to eq "{ $unwind: { 'path': '$my_path', 'preserveNullAndEmptyArrays': true, 'includeArrayIndex': true } }"
+      ).transpose).
+          to eq('$unwind': { 'path': "$my_path", 'preserveNullAndEmptyArrays': true, 'includeArrayIndex': true })
     end
   end
   describe "schema" do

@@ -3,13 +3,13 @@
 require "rails_helper"
 
 RSpec.describe Aggregate::Values::DocumentClass do
-  describe "#to_s" do
+  describe "#transpose" do
     it "raises if is_key is true" do
       expect { Aggregate::Values::DocumentClass.new([]).to_s }.to raise_error(ArgumentError)
     end
 
     it "properly formats an array" do
-      expect(Aggregate::Values::DocumentClass.new(TestDocument, false).to_s).to eq "'test_documents'"
+      expect(Aggregate::Values::DocumentClass.new(TestDocument, false).to_s).to eq "test_documents"
     end
   end
 

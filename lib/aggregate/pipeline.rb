@@ -7,28 +7,27 @@ module Aggregate
     attr_reader :stages
 
     def initialize(klass = nil)
-      @klass  = klass
+      @klass = klass
       @stages = []
     end
 
     def to_s
-      inspect
+      transpose
     end
 
     def inspect
-      @stages.to_s
+      transpose.to_s
+    end
+
+    def transpose
+      @stages.map(&:transpose)
     end
 
     # :reek:NilCheck
     def execute
       raise "Pipeline initializer must specify a class in order to be executable" if @klass.nil?
 
-      db      = Mongoid.default_client.database
-      command = "function(){return db.#{@klass.collection_name}.aggregate(#{self}).toArray()}"
-
-      # https://github.com/mongodb/mongo-ruby-driver/blob/master/lib/mongo/operation/result.rb
-      result = db.command("$eval": command, nolock: true, await_data: true)
-      result.documents
+      @klass.collection.aggregate(transpose)
     end
 
     Aggregate::Stages.constants.each do |klass|

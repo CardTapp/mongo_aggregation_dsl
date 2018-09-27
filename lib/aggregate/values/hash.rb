@@ -4,14 +4,10 @@ module Aggregate
   module Values
     # Takes hash and converts each key and pair to the appropriate value handler if one is available.
     class Hash < Base
-      def to_s
-        inspect
-      end
-
-      def inspect
+      def transpose
         raise ArgumentError("Hash cannot be a hash key") if is_key
 
-        "{ #{transpose_options.map { |hash_key, hash_value| "#{hash_key}: #{hash_value}" }.join(', ')} }"
+        transpose_options
       end
 
       private
