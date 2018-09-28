@@ -4,14 +4,10 @@ module Aggregate
   module Values
     # Takes a mongoid document and returns a string containing the document collection name
     class DocumentClass < Base
-      def to_s
-        inspect
-      end
-
-      def inspect
+      def transpose
         raise ArgumentError("Document cannot be a hash key") if is_key
 
-        "'#{value.collection_name}'"
+        value.collection_name.to_s
       end
 
       class << self

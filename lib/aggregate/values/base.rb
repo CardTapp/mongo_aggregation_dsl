@@ -25,6 +25,10 @@ module Aggregate
         @is_key = is_key
       end
 
+      def to_s
+        transpose.to_s
+      end
+
       class << self
         def value_handlers
           @value_handlers ||= (Aggregate::Values.constants - [:Base]).map do |klass|
@@ -39,7 +43,7 @@ module Aggregate
 
       def get_value(original_value, is_hash_key)
         handler = self.class.value_handlers.detect { |handler| handler.handles?(original_value) }
-        handler.nil? ? original_value : handler.new(original_value, is_hash_key)
+        handler.nil? ? original_value : handler.new(original_value, is_hash_key).transpose
       end
     end
   end

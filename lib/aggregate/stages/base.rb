@@ -13,7 +13,15 @@ module Aggregate
       # :reek:NilCheck
       def initialize(options)
         value_handler = self.class.value_handlers.detect { |handler| handler.handles?(options) }
-        @options = value_handler.nil? ? options : value_handler.new(options, false)
+        @options = value_handler.nil? ? options : value_handler.new(options, false).transpose
+      end
+
+      def to_s
+        transpose.to_s
+      end
+
+      def inspect
+        transpose.to_s
       end
     end
   end

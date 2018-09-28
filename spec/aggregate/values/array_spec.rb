@@ -3,13 +3,13 @@
 require "rails_helper"
 
 RSpec.describe Aggregate::Values::Array do
-  describe "#to_s" do
+  describe "#transpose" do
     it "raises if is_key is true" do
-      expect { Aggregate::Values::Array.new([], true).to_s }.to raise_error(ArgumentError)
+      expect { Aggregate::Values::Array.new([], true).transpose }.to raise_error(ArgumentError)
     end
 
     it "properly formats an array" do
-      expect(Aggregate::Values::Array.new([1, 2], false).to_s).to eq "[1, 2]"
+      expect(Aggregate::Values::Array.new([1, 2], false).transpose).to eq [1, 2]
     end
   end
 

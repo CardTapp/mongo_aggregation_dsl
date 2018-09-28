@@ -3,13 +3,13 @@
 require "rails_helper"
 
 RSpec.describe Aggregate::Values::Hash do
-  describe "#to_s" do
+  describe "#transpose" do
     it "raises if is_key is true" do
       expect { Aggregate::Values::Hash.new([]).to_s }.to raise_error(ArgumentError)
     end
 
     it "properly formats a hash" do
-      expect(Aggregate::Values::Hash.new({ test: "test" }, false).to_s).to eq "{ 'test': 'test' }"
+      expect(Aggregate::Values::Hash.new({ test: "test" }, false).transpose).to eq('test': "test")
     end
   end
 

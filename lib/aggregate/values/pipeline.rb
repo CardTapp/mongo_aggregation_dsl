@@ -3,18 +3,15 @@
 module Aggregate
   module Values
     # Returns a string wrapped in single quotes if the value or string if a key
-    class String < Base
-      def to_s
-        inspect
-      end
-
-      def inspect
-        "'#{value}'"
+    # Additionally adds $ to the reserved aggregation operations.
+    class Pipeline < Base
+      def transpose
+        @value.transpose
       end
 
       class << self
         def handles?(value)
-          value.is_a? ::String
+          value.is_a? ::Aggregate::Pipeline
         end
       end
     end

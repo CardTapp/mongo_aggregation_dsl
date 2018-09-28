@@ -13,12 +13,8 @@ module Aggregate
         super(options)
       end
 
-      def to_s
-        inspect
-      end
-
-      def inspect
-        "{ $match: #{options} }"
+      def transpose
+        { '$match': options }
       end
     end
   end

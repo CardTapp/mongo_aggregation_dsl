@@ -3,6 +3,6 @@
 require "rails_helper"
 
 RSpec.describe Aggregate::Stages::Base do
-  describe "#to_s" do
+  describe "#transpose" do
   end
 end

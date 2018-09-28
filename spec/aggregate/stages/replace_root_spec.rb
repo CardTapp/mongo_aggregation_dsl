@@ -3,9 +3,9 @@
 require "rails_helper"
 
 RSpec.describe Aggregate::Stages::ReplaceRoot do
-  describe "#to_s" do
+  describe "#transpose" do
     it "should properly format" do
-      expect(Aggregate::Stages::ReplaceRoot.new("$test").to_s).to eq "{ $replaceRoot: {newRoot: '$test'} }"
+      expect(Aggregate::Stages::ReplaceRoot.new("$test").transpose).to eq('$replaceRoot': { 'newRoot': "$test" })
     end
   end
   describe "schema" do
