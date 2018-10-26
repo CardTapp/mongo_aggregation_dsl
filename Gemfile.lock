@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    mongo_aggregation_dsl (0.0.3alpha)
+    mongo_aggregation_dsl (0.0.4alpha)
       autoloaded (~> 2)
       contracts-lite
       mongo (~> 2.6.2)
