@@ -23,7 +23,6 @@ Gem::Specification.new do |spec|
   spec.add_dependency "mongoid", "~> 5.2.0"
   spec.add_dependency "origin", "~> 2.3.1"
 
-  spec.add_development_dependency "bundler", "~> 1.16"
   spec.add_development_dependency "codecov", "~> 0.1", "~> 0.1.0"
   spec.add_development_dependency "database_cleaner"
   spec.add_development_dependency "pronto"

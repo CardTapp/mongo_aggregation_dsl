@@ -9,7 +9,7 @@ module Aggregate
                    And[String, C::StartsWith["$"]],
                    KeywordArgs[
                       path: And[String, C::StartsWith["$"]],
-                      includeArrayIndex: Optional[Boolean],
+                      includeArrayIndex: Optional[String],
                       preserveNullAndEmptyArrays: Optional[Boolean]
                    ],
                ] => Any
