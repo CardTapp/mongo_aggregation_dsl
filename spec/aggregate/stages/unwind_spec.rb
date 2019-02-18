@@ -11,9 +11,9 @@ RSpec.describe Aggregate::Stages::Unwind do
       expect(Aggregate::Stages::Unwind.new(
         path: "$my_path",
         preserveNullAndEmptyArrays: true,
-        includeArrayIndex: true
+        includeArrayIndex: "index_column"
       ).transpose).
-          to eq('$unwind': { 'path': "$my_path", 'preserveNullAndEmptyArrays': true, 'includeArrayIndex': true })
+          to eq('$unwind': { 'path': "$my_path", 'preserveNullAndEmptyArrays': true, 'includeArrayIndex': "index_column" })
     end
   end
   describe "schema" do
@@ -44,7 +44,7 @@ RSpec.describe Aggregate::Stages::Unwind do
           expect { Aggregate::Stages::Unwind.new(path: "$test") }.not_to raise_error
         end
         it "can accept includeArrayIndex" do
-          expect { Aggregate::Stages::Unwind.new(path: "$test", includeArrayIndex: true) }.not_to raise_error
+          expect { Aggregate::Stages::Unwind.new(path: "$test", includeArrayIndex: "index_column") }.not_to raise_error
         end
         it "should raise if includeArrayIndex is not a bool" do
           expect { Aggregate::Stages::Unwind.new(path: "$test", includeArrayIndex: 1) }.to raise_error(ParamContractError)
