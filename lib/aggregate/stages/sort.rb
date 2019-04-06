@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-require 'contracts'
+require "contracts"
 module Aggregate
   module Stages
     # Represents an aggregation sort
@@ -10,6 +10,7 @@ module Aggregate
       def initialize(options)
         super
       end
+
       def transpose
         { '$sort': options }
       end

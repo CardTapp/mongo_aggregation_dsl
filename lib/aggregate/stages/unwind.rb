@@ -8,11 +8,11 @@ module Aggregate
       Contract Or[
                    And[String, C::StartsWith["$"]],
                    KeywordArgs[
-                      path: And[String, C::StartsWith["$"]],
-                      includeArrayIndex: Optional[String],
+                      path:                       And[String, C::StartsWith["$"]],
+                      includeArrayIndex:          Optional[String],
                       preserveNullAndEmptyArrays: Optional[Boolean]
                    ],
-               ] => Any
+               ]                                                                                                                                                                                                                                                                                                                                                         => Any
       def initialize(options)
         super(options)
       end

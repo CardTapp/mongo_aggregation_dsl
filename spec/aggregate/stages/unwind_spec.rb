@@ -9,10 +9,10 @@ RSpec.describe Aggregate::Stages::Unwind do
     end
     it "should properly format an advanced unwind" do
       expect(Aggregate::Stages::Unwind.new(
-        path: "$my_path",
-        preserveNullAndEmptyArrays: true,
-        includeArrayIndex: "index_column"
-      ).transpose).
+          path:                       "$my_path",
+          preserveNullAndEmptyArrays: true,
+          includeArrayIndex:          "index_column"
+        ).transpose).
           to eq('$unwind': { 'path': "$my_path", 'preserveNullAndEmptyArrays': true, 'includeArrayIndex': "index_column" })
     end
   end

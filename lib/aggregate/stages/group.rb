@@ -8,7 +8,7 @@ module Aggregate
       Contract And[
                    Not[C::HashValueType[0, Hash]],
                    C::HashValueType[1..-1, Hash]
-               ] => Any
+               ]                                                                                                                         => Any
       def initialize(options)
         super(options)
       end

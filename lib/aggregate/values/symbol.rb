@@ -7,7 +7,7 @@ module Aggregate
     class Symbol < Base
       # rubocop:disable Layout/AlignArray
       EXPRESSION_OPERATORS = %i[
-        abs add ceil divide exp floor ln log log10 mod pow sqrt subtract trunc
+          abs add ceil divide exp floor ln log log10 mod pow sqrt subtract trunc
         arrayElemAt arrayToObject concatArrays filter in indexOfArray isArray map objectToArray
           range reduce reverseArray size slice zip
         and not or

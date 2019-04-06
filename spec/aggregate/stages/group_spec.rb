@@ -6,8 +6,8 @@ RSpec.describe Aggregate::Stages::Group do
   describe "#transpose" do
     it "should properly format" do
       expect(
-        Aggregate::Stages::Group.new(id: nil, total: { "$sum": 1 }).transpose
-      ).to eq('$group': { '_id': nil, 'total': { '$sum': 1 } })
+          Aggregate::Stages::Group.new(id: nil, total: { "$sum": 1 }).transpose
+        ).to eq('$group': { '_id': nil, 'total': { '$sum': 1 } })
     end
   end
   describe "schema" do

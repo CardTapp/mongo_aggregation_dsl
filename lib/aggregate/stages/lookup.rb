@@ -16,7 +16,7 @@ module Aggregate
                        as:       String,
                        let:      And[HashOf[Symbol, Symbol], C::HashMinLength[1]],
                        pipeline: Aggregate::Pipeline]
-                 ] => Any
+                 ]                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                  => Any
       def initialize(options)
         super(options)
       end
