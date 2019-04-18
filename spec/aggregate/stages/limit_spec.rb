@@ -6,8 +6,8 @@ RSpec.describe Aggregate::Stages::Group do
   describe "#transpose" do
     it "should properly format" do
       expect(
-        Aggregate::Stages::Limit.new(5).transpose
-      ).to eq('$limit': 5)
+          Aggregate::Stages::Limit.new(5).transpose
+        ).to eq('$limit': 5)
     end
   end
   describe "schema" do

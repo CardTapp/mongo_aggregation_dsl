@@ -7,7 +7,7 @@ module Aggregate
     class Facet < HashBase
       Contract And[
                    C::HashMinLength[1],
-                   HashOf[Symbol, Aggregate::Pipeline]] => Any
+                   HashOf[Symbol, Aggregate::Pipeline]]                                                             => Any
       def initialize(options)
         super(options)
       end

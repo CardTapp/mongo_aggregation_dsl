@@ -19,7 +19,7 @@ RSpec.describe Aggregate::Stages::Sort do
     it "should properly format" do
       expect(
           Aggregate::Stages::Sort.new(created_at: 1).transpose
-      ).to eq('$sort': { created_at: 1 })
+        ).to eq('$sort': { created_at: 1 })
     end
   end
 end

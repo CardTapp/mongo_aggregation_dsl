@@ -6,13 +6,13 @@ RSpec.describe Aggregate::Stages::Match do
   describe "#transpose" do
     it "should properly format" do
       expect(
-        Aggregate::Stages::Match.new(
-          :expr.and => [
-            { eq: %w[$user_id $$user_id] },
-            { :not.in => ["$name", %w[1 2]] }
-          ]
-        ).transpose
-      ).to eq('$match': { "$expr" => { "$and" => [{ "$eq" => ["$user_id", "$$user_id"] }, { "$not" => { "$in" => ["$name", %w[1 2]] } }] } })
+          Aggregate::Stages::Match.new(
+              :expr.and => [
+                  { eq: %w[$user_id $$user_id] },
+                  { :not.in => ["$name", %w[1 2]] }
+              ]
+            ).transpose
+        ).to eq('$match': { "$expr" => { "$and" => [{ "$eq" => ["$user_id", "$$user_id"] }, { "$not" => { "$in" => ["$name", %w[1 2]] } }] } })
     end
   end
   describe "schema" do
