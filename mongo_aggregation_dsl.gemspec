@@ -19,9 +19,9 @@ Gem::Specification.new do |spec|
 
   spec.add_dependency "autoloaded", "~> 2"
   spec.add_dependency "contracts-lite"
-  spec.add_dependency "mongo", ">= 2.4.3", "< 3.0.0"
-  spec.add_dependency "mongoid", ">= 5.2", "<= 7.0.4"
-  spec.add_dependency "origin", "~> 2.3.1"
+  spec.add_dependency "mongo"
+  spec.add_dependency "mongoid"
+  spec.add_dependency "origin"
 
   spec.add_development_dependency "codecov", "~> 0.1", "~> 0.1.0"
   spec.add_development_dependency "database_cleaner"
