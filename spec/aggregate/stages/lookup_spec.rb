@@ -15,7 +15,7 @@ RSpec.describe Aggregate::Stages::Lookup do
 
   describe "schema" do
     context "simple" do
-      it "does not raise if hash is valid" do
+      it "does not raise if from is valid Mongoid Document" do
         expect do
           Aggregate::Stages::Lookup.new(from:         TestDocument,
                                         localField:   "_id",
@@ -24,19 +24,23 @@ RSpec.describe Aggregate::Stages::Lookup do
         end.not_to raise_error
       end
 
-      describe "from" do
-        it "raises if value is not a Class" do
-          expect do
-            Aggregate::Stages::Lookup.new(from:         "",
-                                          localField:   "_id",
-                                          foreignField: "_foreign_id",
-                                          as:           "test")
-          end.to raise_error(ParamContractError)
-        end
+      it "does not raise if from string exists as a collection" do
+        expect do
+          collections = [double(name: "should_exist", present?: true)]
+          allow(Mongoid).to receive_message_chain(:default_client, :collections).and_return(collections)
+          Aggregate::Stages::Lookup.new(from:         "should_exist",
+                                        localField:   "_id",
+                                        foreignField: "_foreign_id",
+                                        as:           "test")
+        end.not_to raise_error
+      end
 
-        it "raises if value is not a Mongoid Document" do
+      describe "from" do
+        it "raises if value is not a Class and the collection does not exist" do
           expect do
-            Aggregate::Stages::Lookup.new(from:         String,
+            collections = [double(name: "should_exist", present?: true)]
+            allow(Mongoid).to receive_message_chain(:default_client, :collections).and_return(collections)
+            Aggregate::Stages::Lookup.new(from:         "should_not_exist",
                                           localField:   "_id",
                                           foreignField: "_foreign_id",
                                           as:           "test")
@@ -89,18 +93,22 @@ RSpec.describe Aggregate::Stages::Lookup do
       end
 
       describe "from" do
-        it "raises if value is not a Class" do
+        it "raises if value is not a Class and the collection does not exist" do
+          collections = [double(name: "should_exist", present?: true)]
+          allow(Mongoid).to receive_message_chain(:default_client, :collections).and_return(collections)
           expect do
-            Aggregate::Stages::Lookup.new(from:     "",
+            Aggregate::Stages::Lookup.new(from:     "should_not_exist",
                                           let:      { test: :test },
                                           as:       "test",
                                           pipeline: Aggregate::Pipeline.new)
           end.to raise_error(ParamContractError)
         end
 
-        it "raises if value is not a Mongoid Document" do
+        it "raises if value is not a Mongoid Document and the collection does not exist" do
+          collections = [double(name: "should_exist", present?: true)]
+          allow(Mongoid).to receive_message_chain(:default_client, :collections).and_return(collections)
           expect do
-            Aggregate::Stages::Lookup.new(from:     String,
+            Aggregate::Stages::Lookup.new(from:     Object,
                                           let:      { test: :test },
                                           as:       "test",
                                           pipeline: Aggregate::Pipeline.new)

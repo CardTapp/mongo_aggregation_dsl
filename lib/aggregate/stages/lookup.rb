@@ -7,12 +7,12 @@ module Aggregate
     class Lookup < HashBase
       Contract Or[
                    KeywordArgs[
-                       from:         C::ClassIncludes[[Mongoid::Document]],
+                       from:         Or[C::ClassIncludes[Mongoid::Document], C::CollectionExists[]],
                        as:           String,
                        localField:   String,
                        foreignField: String],
                    KeywordArgs[
-                       from:     C::ClassIncludes[[Mongoid::Document]],
+                       from:     Or[C::ClassIncludes[Mongoid::Document], C::CollectionExists[]],
                        as:       String,
                        let:      And[HashOf[Symbol, Symbol], C::HashMinLength[1]],
                        pipeline: Aggregate::Pipeline]
