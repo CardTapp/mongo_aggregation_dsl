@@ -8,6 +8,8 @@ module Aggregate
 
     def initialize(klass = nil)
       @klass = klass
+      raise_message = "Pipeline initializer must specify a Mongoid::Document or collection name in order to be executable"
+      raise raise_message if collection.nil?
       @stages = []
     end
 
@@ -25,9 +27,7 @@ module Aggregate
 
     # :reek:NilCheck
     def execute
-      raise "Pipeline initializer must specify a class in order to be executable" if @klass.nil?
-
-      @klass.collection.aggregate(transpose)
+      collection.aggregate(transpose)
     end
 
     Aggregate::Stages.constants.each do |klass|
@@ -36,5 +36,17 @@ module Aggregate
         self
       end
     end
+
+    private
+
+    def collection
+      if @klass.is_a?(String)
+        @collection = Mongoid.default_client.collections.find{ |collection| collection.name == @klass }
+      elsif @klass.is_a?(Class) && @klass.included_modules.include?(Mongoid::Document)
+        @collection = @klass.collection
+      end
+      @collection
+    end
+
   end
 end

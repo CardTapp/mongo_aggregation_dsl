@@ -3,12 +3,16 @@
 require "rails_helper"
 
 RSpec.describe Aggregate::Stages::Lookup do
+  before do |example|
+    allow(TestDocument).to receive(:collection).and_return(double)
+  end
+
   describe "#transpose" do
     it "should properly format" do
       expect(Aggregate::Stages::Lookup.new(from:     TestDocument,
                                            let:      { test: :"$_id" },
                                            as:       "test",
-                                           pipeline: Aggregate::Pipeline.new).transpose).
+                                           pipeline: Aggregate::Pipeline.new(TestDocument)).transpose).
           to eq('$lookup': { 'from': "test_documents", 'let': { 'test': "$_id" }, 'as': "test", 'pipeline': [] })
     end
   end
@@ -88,7 +92,7 @@ RSpec.describe Aggregate::Stages::Lookup do
           Aggregate::Stages::Lookup.new(from:     TestDocument,
                                         let:      { test: :test },
                                         as:       "test",
-                                        pipeline: Aggregate::Pipeline.new)
+                                        pipeline: Aggregate::Pipeline.new(TestDocument))
         end.not_to raise_error
       end
 
@@ -100,7 +104,7 @@ RSpec.describe Aggregate::Stages::Lookup do
             Aggregate::Stages::Lookup.new(from:     "should_not_exist",
                                           let:      { test: :test },
                                           as:       "test",
-                                          pipeline: Aggregate::Pipeline.new)
+                                          pipeline: Aggregate::Pipeline.new(TestDocument))
           end.to raise_error(ParamContractError)
         end
 
@@ -111,7 +115,7 @@ RSpec.describe Aggregate::Stages::Lookup do
             Aggregate::Stages::Lookup.new(from:     Object,
                                           let:      { test: :test },
                                           as:       "test",
-                                          pipeline: Aggregate::Pipeline.new)
+                                          pipeline: Aggregate::Pipeline.new(TestDocument))
           end.to raise_error(ParamContractError)
         end
       end
@@ -122,7 +126,7 @@ RSpec.describe Aggregate::Stages::Lookup do
             Aggregate::Stages::Lookup.new(from:     TestDocument,
                                           let:      "",
                                           as:       "test",
-                                          pipeline: Aggregate::Pipeline.new)
+                                          pipeline: Aggregate::Pipeline.new(TestDocument))
           end.to raise_error(ParamContractError)
         end
 
@@ -131,7 +135,7 @@ RSpec.describe Aggregate::Stages::Lookup do
             Aggregate::Stages::Lookup.new(from:     TestDocument,
                                           let:      {},
                                           as:       "test",
-                                          pipeline: Aggregate::Pipeline.new)
+                                          pipeline: Aggregate::Pipeline.new(TestDocument))
           end.to raise_error(ParamContractError)
         end
 
@@ -140,7 +144,7 @@ RSpec.describe Aggregate::Stages::Lookup do
             Aggregate::Stages::Lookup.new(from:     TestDocument,
                                           let:      { test: "" },
                                           as:       "test",
-                                          pipeline: Aggregate::Pipeline.new)
+                                          pipeline: Aggregate::Pipeline.new(TestDocument))
           end.to raise_error(ParamContractError)
         end
       end
@@ -151,7 +155,7 @@ RSpec.describe Aggregate::Stages::Lookup do
             Aggregate::Stages::Lookup.new(from:     TestDocument,
                                           let:      { test: :test },
                                           as:       1,
-                                          pipeline: Aggregate::Pipeline.new)
+                                          pipeline: Aggregate::Pipeline.new(TestDocument))
           end.to raise_error(ParamContractError)
         end
       end
