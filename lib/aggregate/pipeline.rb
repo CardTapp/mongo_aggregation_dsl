@@ -9,7 +9,7 @@ module Aggregate
     def initialize(klass = nil)
       @klass = klass
       raise_message = "Pipeline initializer must specify a Mongoid::Document or collection name in order to be executable"
-      raise raise_message if collection.nil?
+      raise raise_message if !klass.nil? && collection.nil?
       @stages = []
     end
 
