@@ -7,8 +7,8 @@ module Aggregate
     class Group < HashBase
       Contract And[
                    Not[C::HashValueType[0, Hash]],
-                   C::HashValueType[1..-1, Hash]
-               ]                                                                                                                         => Any
+                   C::KeyPair[1..-1, [String, Symbol, Origin::Key], [Integer, String, Hash]]
+               ] => Any
       def initialize(options)
         super(options)
       end

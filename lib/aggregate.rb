@@ -10,6 +10,7 @@ require "origin"
 Symbol.add_key(:and, "$and", "$and")
 Symbol.add_key(:nor, "$nor", "$nor")
 Symbol.add_key(:or, "$or", "$or")
+Symbol.add_key(:filter, "$filter", "$filter")
 
 # The base module for the gem under which all classes are namespaced.
 module Aggregate

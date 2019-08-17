@@ -2,7 +2,7 @@
 
 module Aggregate
   module Values
-    # Returns a string wrapped in single quotes if the value or string if a key
+    # Returns a string wrapped in single quotes if the value or string is a key
     # Additionally adds $ to the reserved aggregation operations.
     class Symbol < Base
       # rubocop:disable Layout/AlignArray
