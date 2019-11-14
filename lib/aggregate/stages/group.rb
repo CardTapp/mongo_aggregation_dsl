@@ -7,7 +7,7 @@ module Aggregate
     class Group < HashBase
       Contract And[
                    Not[C::HashValueType[0, Hash]],
-                   C::KeyPair[1..-1, [String, Symbol, Origin::Key], [Integer, String, Hash]]
+                   C::KeyPair[1..-1, [String, Symbol, Mongoid::Criteria::Queryable::Key], [Integer, String, Hash]]
                ] => Any
       def initialize(options)
         super(options)

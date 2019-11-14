@@ -5,16 +5,16 @@ require "rails_helper"
 RSpec.describe Aggregate::Contracts::KeyPair do
   describe "#valid?" do
     it "is true if each hash key in range is an allowed type" do
-      contract = Aggregate::Contracts::KeyPair.new(0..1, [Origin::Key, String],[String])
+      contract = Aggregate::Contracts::KeyPair.new(0..1, [Mongoid::Criteria::Queryable::Key, String],[String])
       expect(contract.valid?(
           "one" => "1",
-          Origin::Key.new("age", "$gt", "$gt") => "two")).to eq true
+          Mongoid::Criteria::Queryable::Key.new("age", "$gt", "$gt") => "two")).to eq true
     end
     it "is false if a hash key in range is not an allowed type" do
       contract = Aggregate::Contracts::KeyPair.new(0..2, [String],[String])
       expect(contract.valid?(
           "one" => "1",
-          Origin::Key.new("age", "$gt", "$gt") => "two")).to eq false
+          Mongoid::Criteria::Queryable::Key.new("age", "$gt", "$gt") => "two")).to eq false
     end
     it "it ignores keys not in range" do
       contract = Aggregate::Contracts::KeyPair.new(1..2, [String], [String])

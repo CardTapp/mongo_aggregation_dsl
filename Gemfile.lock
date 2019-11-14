@@ -1,12 +1,11 @@
 PATH
   remote: .
   specs:
-    mongo_aggregation_dsl (0.0.8alpha)
+    mongo_aggregation_dsl (1.0.0)
       autoloaded (~> 2)
       contracts-lite
-      mongo (>= 2.4.3, < 3.0.0)
-      mongoid (>= 5.2, <= 7.0.4)
-      origin (~> 2.3.1)
+      mongo
+      mongoid (~> 6)
 
 GEM
   remote: https://rubygems.org/
