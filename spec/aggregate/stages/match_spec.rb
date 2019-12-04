@@ -16,7 +16,7 @@ RSpec.describe Aggregate::Stages::Match do
     end
   end
   describe "schema" do
-    it "should not raise if key is an Origin::Key" do
+    it "should not raise if key is an Mongoid::Criteria::Queryable::Key" do
       expect { Aggregate::Stages::Match.new(:expr.and => []) }.not_to raise_error
     end
 

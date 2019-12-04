@@ -15,7 +15,7 @@ module Aggregate
       def transpose_options
         new_hash = {}
         value.each do |original_key, original_value|
-          if original_key.is_a?(Origin::Key)
+          if original_key.is_a?(Mongoid::Criteria::Queryable::Key)
             expression = original_key.__expr_part__(original_value)
             original_key = expression.keys.first.to_sym
             original_value = expression.values.first

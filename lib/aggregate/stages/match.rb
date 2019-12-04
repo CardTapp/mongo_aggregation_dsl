@@ -8,7 +8,7 @@ module Aggregate
     # A simple match `match(account_id: BSON::ObjectId("11111111111111111111"))`
     # An expression match `match( :expr.and => [ { eq: %w[$user_id $$user_id] }] )`
     class Match < HashBase
-      Contract Or[HashOf[Symbol, Any], HashOf[Origin::Key, Any]] => Any
+      Contract Or[HashOf[Symbol, Any], HashOf[Mongoid::Criteria::Queryable::Key, Any]] => Any
       def initialize(options)
         super(options)
       end
