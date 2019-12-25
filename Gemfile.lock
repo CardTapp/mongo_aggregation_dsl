@@ -10,13 +10,12 @@ PATH
 GEM
   remote: https://rubygems.org/
   specs:
-    activemodel (5.2.4)
-      activesupport (= 5.2.4)
-    activesupport (5.2.4)
+    activemodel (5.2.4.1)
+      activesupport (= 5.2.4.1)
+    activesupport (5.2.4.1)
       concurrent-ruby (~> 1.0, >= 1.0.2)
       i18n (>= 0.7, < 2)
       minitest (~> 5.1)
-      thread_safe (~> 0.3, >= 0.3.4)
       tzinfo (~> 1.1)
     addressable (2.7.0)
       public_suffix (>= 2.0.2, < 5.0)
@@ -27,7 +26,7 @@ GEM
       ice_nine (~> 0.11.0)
       thread_safe (~> 0.3, >= 0.3.1)
     brakeman (4.7.2)
-    bson (4.6.0)
+    bson (4.7.0)
     code_analyzer (0.4.8)
       sexp_processor
     codeclimate-engine-rb (0.4.1)
@@ -168,7 +167,7 @@ GEM
       unicode-display_width (~> 1.1, >= 1.1.1)
     thor (0.20.3)
     thread_safe (0.3.6)
-    tzinfo (1.2.5)
+    tzinfo (1.2.6)
       thread_safe (~> 0.1)
     unicode-display_width (1.6.0)
     url (0.3.2)
