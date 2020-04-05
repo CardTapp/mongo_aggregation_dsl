@@ -6,13 +6,13 @@ RSpec.describe Aggregate::Stages::Group do
   describe "#transpose" do
     it "should properly format" do
       expect(
-          Aggregate::Stages::Group.new(id: nil, total: { "$sum": 1 }).transpose
-        ).to eq('$group': { '_id': nil, 'total': { '$sum': 1 } })
+          Aggregate::Stages::Group.new(id: "$_id", total: { "$sum": 1 }).transpose
+        ).to eq('$group': { '_id': "$_id", 'total': { '$sum': 1 } })
     end
   end
   describe "schema" do
-    it "should raise if the first key value is a hash" do
-      expect { Aggregate::Stages::Group.new(test: { test: :test }) }.to raise_error(ParamContractError)
+    it "properly formats a hash" do
+      expect(Aggregate::Stages::Group.new(test: { test: :test }).transpose).to eq('$group': { test: { test: "test" } })
     end
     it "does not raise if the first key value is a string" do
       expect { Aggregate::Stages::Group.new(test: "1") }.not_to raise_error
