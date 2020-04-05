@@ -6,7 +6,7 @@ module Aggregate
     # https://docs.mongodb.com/manual/reference/operator/aggregation/group/#pipe._S_group
     class Group < HashBase
       Contract And[
-                   C::KeyPair[0..0, [String, Symbol], [Symbol, String, Hash]],
+                   C::KeyPair[0..0, [String, Symbol], [Symbol, String, Hash, NilClass]],
                    C::KeyPair[1..-1, [String, Symbol, Mongoid::Criteria::Queryable::Key], [Integer, String, Hash]]
                ] => Any
       def initialize(options)
