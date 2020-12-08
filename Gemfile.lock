@@ -26,7 +26,7 @@ GEM
       ice_nine (~> 0.11.0)
       thread_safe (~> 0.3, >= 0.3.1)
     brakeman (4.10.0)
-    bson (4.10.1)
+    bson (4.11.1)
     code_analyzer (0.5.2)
       sexp_processor
     codeclimate-engine-rb (0.4.1)
@@ -68,7 +68,7 @@ GEM
       mime-types-data (~> 3.2015)
     mime-types-data (3.2020.1104)
     minitest (5.14.2)
-    mongo (2.13.1)
+    mongo (2.14.0)
       bson (>= 4.8.2, < 5.0.0)
     mongoid (6.4.4)
       activemodel (>= 5.1, < 6.0.0)
