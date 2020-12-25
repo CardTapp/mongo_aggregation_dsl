@@ -31,9 +31,8 @@ GEM
       sexp_processor
     codeclimate-engine-rb (0.4.1)
       virtus (~> 1.0)
-    codecov (0.2.12)
-      json
-      simplecov
+    codecov (0.2.15)
+      simplecov (>= 0.15, < 0.21)
     coercible (1.0.0)
       descendants_tracker (~> 0.0.1)
     colorize (0.8.1)
