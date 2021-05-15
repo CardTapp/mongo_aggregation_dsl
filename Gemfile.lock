@@ -10,13 +10,13 @@ PATH
 GEM
   remote: https://rubygems.org/
   specs:
-    activemodel (5.2.4.5)
-      activesupport (= 5.2.4.5)
-    activerecord (5.2.4.5)
-      activemodel (= 5.2.4.5)
-      activesupport (= 5.2.4.5)
+    activemodel (5.2.6)
+      activesupport (= 5.2.6)
+    activerecord (5.2.6)
+      activemodel (= 5.2.6)
+      activesupport (= 5.2.6)
       arel (>= 9.0)
-    activesupport (5.2.4.5)
+    activesupport (5.2.6)
       concurrent-ruby (~> 1.0, >= 1.0.2)
       i18n (>= 0.7, < 2)
       minitest (~> 5.1)
@@ -45,7 +45,7 @@ GEM
     contracts-lite (0.15.0)
     database_cleaner (2.0.1)
       database_cleaner-active_record (~> 2.0.0)
-    database_cleaner-active_record (2.0.0)
+    database_cleaner-active_record (2.0.1)
       activerecord (>= 5.a)
       database_cleaner-core (~> 2.0.0)
     database_cleaner-core (2.0.1)
