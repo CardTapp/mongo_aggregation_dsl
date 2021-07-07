@@ -10,7 +10,7 @@ module Aggregate
                    KeywordArgs[
                       path:                       And[String, C::StartsWith["$"]],
                       includeArrayIndex:          Optional[String],
-                      preserveNullAndEmptyArrays: Optional[Boolean]
+                      preserveNullAndEmptyArrays: Optional[Mongoid::Boolean]
                    ],
                ]                                                                                                                                                                                                                                                                                                                                                         => Any
       def initialize(options)
