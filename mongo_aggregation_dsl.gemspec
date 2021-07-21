@@ -2,7 +2,7 @@
 
 Gem::Specification.new do |spec|
   spec.name = "mongo_aggregation_dsl"
-  spec.version = "1.0.0"
+  spec.version = "1.1.0"
   spec.authors = ["KrimsonKla"]
   spec.email   = ["admin@cardtapp.com"]
   spec.date = "2018-09-10"
@@ -20,7 +20,7 @@ Gem::Specification.new do |spec|
   spec.add_dependency "autoloaded", "~> 2"
   spec.add_dependency "contracts-lite"
   spec.add_dependency "mongo"
-  spec.add_dependency "mongoid", "~> 6"
+  spec.add_dependency "mongoid", "~> 7"
 
   spec.add_development_dependency "codecov", "~> 0.1", "~> 0.5.1"
   spec.add_development_dependency "database_cleaner"
