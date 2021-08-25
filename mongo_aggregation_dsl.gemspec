@@ -22,7 +22,7 @@ Gem::Specification.new do |spec|
   spec.add_dependency "mongo"
   spec.add_dependency "mongoid", "~> 7"
 
-  spec.add_development_dependency "codecov", "~> 0.1", "~> 0.5.1"
+  spec.add_development_dependency "codecov", "~> 0.1", "~> 0.6.0"
   spec.add_development_dependency "database_cleaner"
   spec.add_development_dependency "pronto"
   spec.add_development_dependency "pronto-brakeman"
