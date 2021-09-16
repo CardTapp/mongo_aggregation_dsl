@@ -39,10 +39,6 @@ jobs:
             - ./venv
           key: v1-dependencies-{{ checksum "Gemfile.lock" }}
 
-      - run:
-          name: pronto
-          command: echo ${PRONTO_GITHUB_ACCESS_TOKEN} && bundle exec pronto-circleci
-
       # run tests!
       - run:
           name: run tests
