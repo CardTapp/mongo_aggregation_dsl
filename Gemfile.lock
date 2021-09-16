@@ -1,3 +1,10 @@
+GIT
+  remote: https://github.com/CardTapp/autoloaded.git
+  revision: 0c23837e44d7d9e4a3c6fee879445b736426e1ab
+  branch: jmr/ruby_3_support
+  specs:
+    autoloaded (2.3.0)
+
 PATH
   remote: .
   specs:
@@ -24,7 +31,6 @@ GEM
     addressable (2.8.0)
       public_suffix (>= 2.0.2, < 5.0)
     ast (2.4.2)
-    autoloaded (2.3.0)
     brakeman (5.1.1)
     bson (4.12.1)
     code_analyzer (0.5.2)
@@ -194,6 +200,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  autoloaded!
   codecov (~> 0.6.0, ~> 0.1)
   database_cleaner
   gem-release

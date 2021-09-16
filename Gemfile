@@ -8,3 +8,5 @@ git_source(:github) { |repo_name| "https://github.com/#{repo_name}" }
 gemspec
 
 gem "gem-release"
+
+gem "autoloaded", git: "https://github.com/CardTapp/autoloaded.git", branch: "jmr/ruby_3_support"
