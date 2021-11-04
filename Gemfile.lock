@@ -25,7 +25,7 @@ GEM
       public_suffix (>= 2.0.2, < 5.0)
     ast (2.4.2)
     autoloaded (2.4.0)
-    brakeman (5.1.1)
+    brakeman (5.1.2)
     bson (4.12.1)
     code_analyzer (0.5.2)
       sexp_processor
