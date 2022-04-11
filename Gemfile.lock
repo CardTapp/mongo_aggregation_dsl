@@ -10,12 +10,12 @@ PATH
 GEM
   remote: https://rubygems.org/
   specs:
-    activemodel (6.1.4.1)
-      activesupport (= 6.1.4.1)
-    activerecord (6.1.4.1)
-      activemodel (= 6.1.4.1)
-      activesupport (= 6.1.4.1)
-    activesupport (6.1.4.1)
+    activemodel (6.1.5)
+      activesupport (= 6.1.5)
+    activerecord (6.1.5)
+      activemodel (= 6.1.5)
+      activesupport (= 6.1.5)
+    activesupport (6.1.5)
       concurrent-ruby (~> 1.0, >= 1.0.2)
       i18n (>= 1.6, < 2)
       minitest (>= 5.1)
@@ -32,7 +32,7 @@ GEM
     codecov (0.6.0)
       simplecov (>= 0.15, < 0.22)
     colorize (0.8.1)
-    concurrent-ruby (1.1.9)
+    concurrent-ruby (1.1.10)
     connection_pool (2.2.5)
     contracts-lite (0.15.0)
     database_cleaner (2.0.1)
