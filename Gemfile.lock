@@ -32,7 +32,7 @@ GEM
     codecov (0.6.0)
       simplecov (>= 0.15, < 0.22)
     colorize (0.8.1)
-    concurrent-ruby (1.1.10)
+    concurrent-ruby (1.2.0)
     contracts-lite (0.15.0)
     database_cleaner (2.0.1)
       database_cleaner-active_record (~> 2.0.0)
