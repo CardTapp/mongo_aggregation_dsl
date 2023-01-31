@@ -2,7 +2,7 @@
 
 Gem::Specification.new do |spec|
   spec.name = "mongo_aggregation_dsl"
-  spec.version = "1.2.1"
+  spec.version = "1.2.2"
   spec.authors = ["KrimsonKla"]
   spec.email   = ["admin@cardtapp.com"]
   spec.date = "2018-09-10"
