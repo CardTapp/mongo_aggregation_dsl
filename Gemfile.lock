@@ -121,7 +121,7 @@ GEM
       rainbow (>= 2.0, < 4.0)
     regexp_parser (2.7.0)
     require_all (3.0.0)
-    rexml (3.2.5)
+    rexml (3.4.1)
     rspec (3.13.1)
       rspec-core (~> 3.13.0)
       rspec-expectations (~> 3.13.0)
