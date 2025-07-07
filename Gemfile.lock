@@ -36,7 +36,8 @@ GEM
     base64 (0.3.0)
     benchmark (0.4.1)
     bigdecimal (3.2.2)
-    brakeman (5.4.1)
+    brakeman (7.0.2)
+      racc
     bson (5.1.1)
     code_analyzer (0.5.5)
       sexp_processor
