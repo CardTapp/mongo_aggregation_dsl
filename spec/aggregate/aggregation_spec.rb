@@ -3,7 +3,7 @@
 require "rails_helper"
 
 RSpec.describe Aggregate::Pipeline do
-	before do |example|
+	before do
 		allow(TestDocument).to receive(:collection).and_return(double)
 	end
 
@@ -19,6 +19,15 @@ RSpec.describe Aggregate::Pipeline do
 		collections = [double(name: "should_exist", present?: true)]
         allow(Mongoid).to receive_message_chain(:default_client, :collections).and_return(collections)
 		expect{Aggregate::Pipeline.new("should_exist")}.not_to raise_error
-	end
+  end
+
+  describe "#primary_read" do
+    it "sets the read preference" do
+      pipeline = Aggregate::Pipeline.new(TestDocument)
+      expect(pipeline.primary_read).to be false
+      expect(pipeline.with_primary_read).to eq pipeline
+      expect(pipeline.primary_read).to be true
+    end
+  end
 
 end
