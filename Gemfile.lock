@@ -35,7 +35,7 @@ GEM
     autoloaded (2.4.0)
     base64 (0.3.0)
     benchmark (0.4.1)
-    bigdecimal (3.2.2)
+    bigdecimal (3.2.3)
     brakeman (7.1.0)
       racc
     bson (5.1.1)
