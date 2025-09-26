@@ -5,18 +5,18 @@ PATH
       autoloaded (~> 2)
       contracts-lite
       mongo
-      mongoid (~> 9.0, <= 9.0.7)
+      mongoid (~> 9.0, <= 9.0.8)
 
 GEM
   remote: https://rubygems.org/
   specs:
-    activemodel (8.0.2.1)
-      activesupport (= 8.0.2.1)
-    activerecord (8.0.2.1)
-      activemodel (= 8.0.2.1)
-      activesupport (= 8.0.2.1)
+    activemodel (8.0.3)
+      activesupport (= 8.0.3)
+    activerecord (8.0.3)
+      activemodel (= 8.0.3)
+      activesupport (= 8.0.3)
       timeout (>= 0.4.0)
-    activesupport (8.0.2.1)
+    activesupport (8.0.3)
       base64
       benchmark (>= 0.3)
       bigdecimal
@@ -113,7 +113,7 @@ GEM
     mongo (2.21.3)
       base64
       bson (>= 4.14.1, < 6.0.0)
-    mongoid (9.0.7)
+    mongoid (9.0.8)
       activemodel (>= 5.1, < 8.1, != 7.0.0)
       concurrent-ruby (>= 1.0.5, < 2.0)
       mongo (>= 2.18.0, < 3.0.0)
