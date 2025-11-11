@@ -10,13 +10,13 @@ PATH
 GEM
   remote: https://rubygems.org/
   specs:
-    activemodel (8.0.3)
-      activesupport (= 8.0.3)
-    activerecord (8.0.3)
-      activemodel (= 8.0.3)
-      activesupport (= 8.0.3)
+    activemodel (8.0.4)
+      activesupport (= 8.0.4)
+    activerecord (8.0.4)
+      activemodel (= 8.0.4)
+      activesupport (= 8.0.4)
       timeout (>= 0.4.0)
-    activesupport (8.0.3)
+    activesupport (8.0.4)
       base64
       benchmark (>= 0.3)
       bigdecimal
@@ -104,12 +104,12 @@ GEM
       multi_xml (>= 0.5.2)
     i18n (1.14.7)
       concurrent-ruby (~> 1.0)
-    json (2.15.2)
+    json (2.16.0)
     language_server-protocol (3.17.0.5)
     lint_roller (1.1.0)
     logger (1.7.0)
     mini_mime (1.1.5)
-    minitest (5.26.0)
+    minitest (5.26.1)
     mongo (2.21.3)
       base64
       bson (>= 4.14.1, < 6.0.0)
@@ -157,7 +157,7 @@ GEM
       rubocop (>= 0.63.1, < 2.0)
     public_suffix (6.0.2)
     racc (1.8.1)
-    rails_best_practices (1.23.2)
+    rails_best_practices (1.23.3)
       activesupport
       code_analyzer (~> 0.5.5)
       erubis
