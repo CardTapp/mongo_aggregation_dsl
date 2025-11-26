@@ -38,7 +38,7 @@ GEM
     bigdecimal (3.3.1)
     brakeman (7.1.1)
       racc
-    bson (5.1.1)
+    bson (5.2.0)
     code_analyzer (0.5.5)
       sexp_processor
     codecov (0.6.0)
@@ -110,7 +110,7 @@ GEM
     logger (1.7.0)
     mini_mime (1.1.5)
     minitest (5.26.1)
-    mongo (2.21.3)
+    mongo (2.22.0)
       base64
       bson (>= 4.14.1, < 6.0.0)
     mongoid (9.0.8)
