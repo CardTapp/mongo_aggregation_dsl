@@ -4,13 +4,19 @@ module Aggregate
   # Represents an aggregation pipeline and is the main entry point to the DSL
   # Example: Aggregate::Pipeline.new().match().project().execute()
   class Pipeline
-    attr_reader :stages
+    attr_reader :stages, :primary_read
 
     def initialize(klass = nil)
+      @primary_read = false
       @klass = klass
+      @stages = []
       raise_message = "Pipeline initializer must specify a Mongoid::Document or collection name in order to be executable"
       raise raise_message if !klass.nil? && collection.nil?
-      @stages = []
+    end
+
+    def with_primary_read
+      @primary_read = true
+      return self
     end
 
     def to_s
@@ -27,7 +33,11 @@ module Aggregate
 
     # :reek:NilCheck
     def execute
-      collection.aggregate(transpose)
+      if :primary_read
+        collection.aggregate(transpose)
+      else
+        collection.aggregate(transpose, read: { mode: :secondary })
+      end
     end
 
     Aggregate::Stages.constants.each do |klass|
